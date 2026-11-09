@@ -1,0 +1,14 @@
+# KPI Dictionary: Fresh-Produce Price-Risk Monitor
+
+| KPI | Precise Definition | Source Table / View | Caveat / Limit |
+| :--- | :--- | :--- | :--- |
+| **Market-day price** | Arrivals-weighted mean of modal prices across varieties at one market on one day (plain arithmetic mean if arrivals are unknown). | `market_day` | Modal price is the most frequently traded price, not a true transaction average. |
+| **Benchmark price** | Daily median of market-day prices across all reporting markets for a given commodity, excluding suspect outlier market-days. | `benchmark_day` | Requires $\ge 5$ reporting markets (`low_coverage = False`); reflects wholesale prices, not retail consumer prices. |
+| **Weekly benchmark** | Arithmetic average of daily benchmark prices within the calendar week, skipping low-coverage days. | `v_benchmark_weekly` | Weeks with fewer than 3 reporting days provide a weaker representative signal. |
+| **YoY %** | Percentage change comparing the current week's benchmark price to the benchmark price 52 calendar weeks prior. | `v_weekly_trend` | Calendar shifts (e.g. Diwali/festivals shifting weeks) and prior-year extreme spikes introduce noise. |
+| **Spread %** | Percentage difference between a state's median weekly price and the national weekly benchmark. | `v_state_spread` | Thin reporting in smaller states can exaggerate positive or negative spread. |
+| **Seasonal index** | Average monthly price expressed as a percentage of the annual average price across multi-year history (full years with $\ge 10$ reporting months only). | `v_seasonality`, `v_seasonal_index` | Unseasonal weather disruptions and policy shocks (export bans) distort historical norms. |
+| **Volatility (CV 26w)** | 26-week trailing population standard deviation of weekly benchmark prices divided by the 26-week trailing mean price (Coefficient of Variation). | `v_weekly_trend` | Window length (26 weeks) is an analytical judgment; reflects historical volatility, not forward forecast. |
+| **Spike flag** | Binary flag activated when current price $> 1.2 \times$ 52-week average AND arrivals $< 0.8 \times$ 52-week average (with $\ge 26$ prior weeks of history). | `v_spike_flags` | Multipliers (1.2x price, 0.8x arrivals) are business heuristics designed for procurement alerts, not statistical guarantees. |
+| **Reporting reliability** | Total unique reported days divided by $(7 \times \text{selected weeks})$ for a given market. | `market_week` | A market that ceases reporting will appear cheap or absent rather than expensive. |
+| **Margin %** | Modeled procurement margin: $\frac{\text{Selling Price} - \text{Cost per kg}}{\text{Selling Price}}$, where $\text{Cost per kg} = \frac{\text{Weekly Price}}{100} \times (1 + \text{Wastage \%}) + \text{Logistics}$. | Power BI Measure | Dependent on user what-if assumption inputs; ignores fixed cold storage and overhead costs. |
