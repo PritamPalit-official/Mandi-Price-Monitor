@@ -2,10 +2,11 @@
 __pycache__/
 *.pyc
 .env
+# Data (Raw and interim large files)
 data/raw/*
 !data/raw/.gitkeep
 data/interim/*
 !data/interim/.gitkeep
-data/export/*
-!data/export/.gitkeep
 *.duckdb
+*.duckdb.wal
+

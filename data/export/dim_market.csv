@@ -1,0 +1,19 @@
+market_code,market,district,state,latitude,longitude
+G1,Mahuva Mandi,Bhavnagar,Gujarat,21.09,71.76
+G2,Gondal Mandi,Rajkot,Gujarat,21.96,70.79
+G3,Ahmedabad Mandi,Ahmedabad,Gujarat,23.02,72.57
+K1,Bangalore Mandi,Bangalore,Karnataka,12.97,77.59
+K2,Kolar Mandi,Kolar,Karnataka,13.13,78.13
+K3,Hubli Mandi,Dharwad,Karnataka,15.36,75.12
+K4,Belgaum Mandi,Belgaum,Karnataka,15.84,74.49
+M1,Lasalgaon Mandi,Nashik,Maharashtra,20.14,74.22
+M2,Pimpalgaon Mandi,Nashik,Maharashtra,20.17,73.98
+M3,Pune Mandi,Pune,Maharashtra,18.52,73.85
+M4,Nashik Mandi,Nashik,Maharashtra,19.99,73.78
+M5,Ahmednagar Mandi,Ahmednagar,Maharashtra,19.09,74.74
+P1,Indore Mandi,Indore,Madhya Pradesh,22.71,75.85
+P2,Neemuch Mandi,Neemuch,Madhya Pradesh,24.47,74.87
+P3,Ujjain Mandi,Ujjain,Madhya Pradesh,23.17,75.78
+U1,Agra Mandi,Agra,Uttar Pradesh,27.17,78.0
+U2,Farrukhabad Mandi,Farrukhabad,Uttar Pradesh,27.38,79.58
+U3,Kanpur Mandi,Kanpur,Uttar Pradesh,26.44,80.33
